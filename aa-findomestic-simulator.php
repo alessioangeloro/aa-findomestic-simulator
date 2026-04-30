@@ -3,7 +3,7 @@
  * Plugin Name: AA - Findomestic Simulator
  * Plugin URI: https://alessioangeloro.it/aa-findomestic-simulator
  * Description: Simulatore Rate Findomestic per WooCommerce. Mostra in pagina prodotto un pulsante che apre un modale con la simulazione del finanziamento Findomestic per quell'importo.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Alessio Angeloro
  * Author URI: https://alessioangeloro.it
  * License: GPLv2 or later
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('AA_FINSIM_VERSION', '1.0.2');
+define('AA_FINSIM_VERSION', '1.0.3');
 define('AA_FINSIM_FILE', __FILE__);
 define('AA_FINSIM_DIR', plugin_dir_path(__FILE__));
 define('AA_FINSIM_URL', plugin_dir_url(__FILE__));
