@@ -109,21 +109,21 @@ Nessun dato personale del visitatore viene inviato a Findomestic in fase di simu
 
 > Carica gli screenshot nella cartella `assets/screenshots/` del repository GitHub e poi aggiorna i percorsi qui sotto se usi nomi diversi.
 
-### 1. Pulsante simulatore in pagina prodotto
+### 1. Pagina settings del plugin
 
 ![Pulsante simulatore in pagina prodotto](assets/screenshots/screenshot-1.png)
 
-### 2. Modale con tabella delle rate
+### 2. Pulsante simulatore in pagina prodotto
 
 ![Modale con tabella delle rate](assets/screenshots/screenshot-2.png)
 
-### 3. Pagina settings del plugin
+### 3. Modale con tabella delle rate
 
 ![Pagina settings del plugin](assets/screenshots/screenshot-3.png)
 
 ## Changelog
 
-### 1.0.2
+### 1.0.3
 
 - Prima release pubblica del simulatore rate Findomestic per WooCommerce.
 - Aggiunto supporto per prodotti semplici e variabili.
