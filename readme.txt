@@ -1,0 +1,125 @@
+=== AA - Findomestic Simulator ===
+Contributors: alessioangeloro
+Tags: woocommerce, findomestic, finanziamento, simulatore rate, rateizzazione
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+Stable tag: 1.0.2
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Simulatore Rate Findomestic per WooCommerce. Mostra in pagina prodotto un pulsante che apre un modale con la simulazione del finanziamento.
+
+== Description ==
+
+AA - Findomestic Simulator integra in WooCommerce il simulatore rate Findomestic. In ogni pagina prodotto compare un pulsante che, al click, apre un modale con il dettaglio delle rate disponibili (durata, importo mensile, TAN, TAEG) calcolate sull'importo del prodotto.
+
+Il plugin è pensato per i merchant italiani che vogliono mostrare ai propri clienti la possibilità di finanziare l'acquisto con Findomestic, anche prima di completare l'ordine.
+
+= Funzionalità =
+
+* Pulsante "Simula rate Findomestic" in ogni pagina prodotto
+* Modale responsive con tabella delle rate disponibili
+* Importo simulato basato sul prezzo reale del prodotto (incluse varianti per prodotti variabili)
+* Disclaimer Findomestic configurabile (necessario per legge italiana sui finanziamenti)
+* Compatibile con prodotti semplici e variabili
+* Importo minimo simulazione: 1.000 €
+
+= Credenziali Findomestic =
+
+Per usare il simulatore servono i codici TVEI e PRF forniti da Findomestic al merchant. Senza queste credenziali il simulatore non può chiamare l'API Findomestic.
+
+= Versione Pro =
+
+Per chi vuole anche integrare Findomestic come metodo di pagamento al checkout (con gestione completa dell'ordine, redirect, callback con esito) è disponibile la versione Pro **AA - Findomestic for WooCommerce** distribuita su [alessioangeloro.it](https://alessioangeloro.it/prodotto/findomestic-per-woocommerce/).
+
+Se installi la Pro mentre la Lite è attiva, AA - Findomestic Simulator si auto-disattiva per evitare duplicazioni.
+
+== Installation ==
+
+1. Carica la cartella `aa-findomestic-simulator` in `/wp-content/plugins/` oppure installa il plugin direttamente dalla schermata Plugin di WordPress
+2. Attiva il plugin dalla schermata Plugin di WordPress
+3. Vai in Impostazioni > Findomestic Simulator
+4. Inserisci i codici TVEI e PRF forniti da Findomestic
+5. Spunta "Abilita simulatore rate"
+6. Personalizza eventualmente il testo del pulsante e il disclaimer Findomestic
+7. Salva. Il pulsante apparirà in ogni pagina prodotto WooCommerce
+
+== Frequently Asked Questions ==
+
+= Posso usare il plugin senza credenziali Findomestic? =
+
+No. Le credenziali TVEI e PRF sono necessarie per chiamare l'API di simulazione Findomestic. Devi richiederle al tuo referente Findomestic.
+
+= Il plugin gestisce anche il pagamento al checkout? =
+
+No. AA - Findomestic Simulator si occupa solo della simulazione rate in pagina prodotto. Per integrare Findomestic come metodo di pagamento al checkout serve la versione Pro.
+
+= Funziona con prodotti variabili? =
+
+Sì. Per i prodotti variabili il pulsante diventa attivo dopo la selezione di tutte le varianti. Se l'utente clicca prima di selezionare le varianti, viene mostrato un messaggio che indica quale variante manca.
+
+= Cos'è l'importo minimo di 1.000 €? =
+
+È il limite minimo richiesto da Findomestic per poter simulare un finanziamento. Per prodotti sotto i 1.000 € il pulsante non viene mostrato.
+
+= Dove vengono inviati i dati? =
+
+I dati di simulazione (importo, codici TVEI/PRF dell'esercente) vengono inviati ai server Findomestic per calcolare le rate. Vedi la sezione "External services" per i dettagli.
+
+== External services ==
+
+Questo plugin si connette ai server Findomestic per ottenere la simulazione delle rate. Senza questa chiamata il modale rate non può funzionare.
+
+**Servizio:** Findomestic Banca S.p.A. – API simulazione rate ecommerce
+
+**Endpoint chiamati:**
+
+* `https://secure.findomestic.it/clienti/webapp/ecommerce/` – fetch della sessione iniziale
+* `https://secure.findomestic.it/b2c/ecm/v1/order/create` – creazione ordine simulazione
+* `https://secure.findomestic.it/b2c/ecm/v1/order?token={token}` – aggiornamento dati ordine
+* `https://secure.findomestic.it/b2c/ecm/v1/order/{order_id}/offer` – richiesta offerte rateali
+
+**Quando viene effettuata la chiamata:** quando un visitatore del sito clicca sul pulsante "Simula rate Findomestic" in pagina prodotto.
+
+**Dati inviati:**
+
+* Importo del prodotto (in euro)
+* Codice TVEI dell'esercente (configurato dall'admin nelle settings)
+* Codice PRF dell'esercente (configurato dall'admin nelle settings)
+* Headers HTTP standard (User-Agent, Origin, Referer)
+
+**Dati personali dell'utente:** nessun dato personale del visitatore viene inviato a Findomestic in fase di simulazione. Vengono inviati solo l'importo del prodotto e le credenziali dell'esercente.
+
+**Termini di servizio Findomestic:** [https://www.findomestic.it/](https://www.findomestic.it/)
+**Privacy policy Findomestic:** [https://www.findomestic.it/privacy](https://www.findomestic.it/privacy)
+
+== Screenshots ==
+
+1. Pulsante simulatore in pagina prodotto
+2. Modale con tabella delle rate
+3. Pagina settings del plugin
+
+== Changelog ==
+
+= 1.0.2 =
+* Disclaimer Findomestic precompilato automaticamente all'attivazione del plugin con il messaggio promozionale standard. L'utente può poi modificarlo dalle settings; se è già stato personalizzato, non viene sovrascritto su riattivazione
+* Aggiornato link "Passa a Pro" verso la pagina prodotto dedicata
+* Aggiornata lista features della versione Pro nella sidebar settings (15 funzionalità)
+* Aggiornato link Documentazione e FAQ verso la scheda prodotto
+
+= 1.0.1 =
+* Aggiunto check di compatibilità: AA - Findomestic Simulator mostra un avviso se WooCommerce non è attivo
+* Aggiunto caricamento traduzioni con `load_plugin_textdomain` per supportare file `.mo/.po` nella cartella `languages/`
+
+= 1.0.0 =
+* Versione iniziale pubblicata su WordPress.org
+* Pulsante simulatore rate in pagina prodotto
+* Modale responsive con dettaglio rate
+* Settings page con TVEI, PRF, label custom, disclaimer
+* Auto-disattivazione se la versione Pro è attiva
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+Versione iniziale.

@@ -1,0 +1,285 @@
+.aa-findomestic-container {
+  margin-top: 15px;
+}
+
+.aa-findomestic-simulate {
+  background-color: #f7be38 !important;
+  border-color: #f7be38;
+  color: #26272b !important;
+  border: none;
+  padding: 10px 15px !important;
+  margin: 10px !important;
+  cursor: pointer !important;
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  width: 100% !important;
+  display: block !important;
+  text-align: center !important;
+  border-radius: 50px!important;
+  float: left !important;
+}
+
+.aa-findomestic-simulate:hover {
+  background-color: #F7BE38E6 !important;
+  border-color: #F7BE38E6 !important;
+}
+
+.aa-findomestic-installments {
+  display: none;
+  margin-top: 10px;
+  width: 100%;
+  padding: 5px;
+}
+
+/* Simulatore Rate */
+.aa-findomestic-simulator-wrap {
+  margin-top: 12px;
+}
+
+.aa-findomestic-inline-message {
+  margin: 0 0px 10px 10px;
+  padding: 10px 12px;
+  border: 1px solid #e7000b;
+  background: #ffe3e1;
+  color: #b72412;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+/* MODAL */
+.aa-findomestic-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+}
+
+.aa-findomestic-modal.is-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.aa-findomestic-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.aa-findomestic-modal__content {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.aa-findomestic-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.aa-findomestic-modal__brand-top img {
+  display: block;
+  max-width: 150px;
+  height: auto;
+}
+
+.aa-findomestic-modal__close {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.aa-findomestic-modal__message {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #1d2327;
+}
+
+/* TABELLA */
+.aa-table-findo-simulation-sp {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* CHECKOUT*/
+#payment_method_aa_findomestic_gateway + label > img {
+	max-height: 40px;
+	width: auto;
+	vertical-align: middle;
+	margin-left: 8px;
+}
+
+.aa-table-findo-simulation-sp th,
+.aa-table-findo-simulation-sp td {
+  border: 1px solid #e5e5e5;
+  padding: 10px 12px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.aa-table-findo-simulation-sp thead th {
+  background: #f6f7f7;
+  font-weight: 600;
+}
+
+/* RESPONSIVE: table -> card */
+@media screen and (max-width: 768px) {
+  .aa-findomestic-modal.is-open {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .aa-findomestic-modal__content {
+    width: 100%;
+    max-height: calc(100vh - 24px);
+    padding: 12px;
+    border-radius: 6px;
+  }
+
+  .aa-table-findo-simulation-sp {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .aa-table-findo-simulation-sp thead {
+    display: none;
+  }
+
+  .aa-table-findo-simulation-sp,
+  .aa-table-findo-simulation-sp tbody,
+  .aa-table-findo-simulation-sp tr,
+  .aa-table-findo-simulation-sp td {
+    display: block;
+    width: 100%;
+  }
+
+  .aa-table-findo-simulation-sp tr {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+
+  .aa-table-findo-simulation-sp td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    display: grid;
+    grid-template-columns: minmax(120px, 42%) 1fr;
+    align-items: start;
+    gap: 8px;
+    padding: 10px 12px;
+    min-height: auto;
+    box-sizing: border-box;
+    text-align: left;
+    word-break: break-word;
+  }
+
+  .aa-table-findo-simulation-sp td:last-child {
+    border-bottom: none;
+  }
+
+  .aa-table-findo-simulation-sp td::before {
+    position: static;
+    display: block;
+    width: auto;
+    font-weight: 600;
+    color: #1d2327;
+    white-space: normal;
+  }
+
+  .aa-table-findo-simulation-sp td:nth-child(1)::before {
+    content: "Durata";
+  }
+
+  .aa-table-findo-simulation-sp td:nth-child(2)::before {
+    content: "Rata mensile";
+  }
+
+  .aa-table-findo-simulation-sp td:nth-child(3)::before {
+    content: "TAN";
+  }
+
+  .aa-table-findo-simulation-sp td:nth-child(4)::before {
+    content: "TAEG";
+  }
+
+  .aa-table-findo-simulation-sp td:nth-child(5)::before {
+    content: "Importo richiesto";
+  }
+
+  .aa-table-findo-simulation-sp td:nth-child(6)::before {
+    content: "Totale dovuto";
+  }
+}
+
+.aa-findomestic-modal.is-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aa-findomestic-modal__content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.aa-findomestic-modal__overlay {
+  cursor: pointer;
+}
+
+.aa-findomestic-modal__footer {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+
+.aa-findomestic-modal__disclaimer {
+  flex: 1;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+}
+
+.aa-findomestic-modal__brand {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.aa-findomestic-modal__brand img {
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .aa-findomestic-modal__footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aa-findomestic-modal__brand {
+    justify-content: flex-start;
+  }
+}
