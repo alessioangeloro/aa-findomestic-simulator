@@ -15,7 +15,7 @@ function aa_findo_sim_register_menu() {
     );
 }
 
-// registro le option con sanitization callback dedicato
+// registro le option con il callback di sanitizzazione
 add_action('admin_init', 'aa_findo_sim_register_settings');
 function aa_findo_sim_register_settings() {
     register_setting(

@@ -47,7 +47,7 @@ if (!function_exists('aa_findomestic_get_product_simulator_button_label')) {
 
 if (!function_exists('aa_findomestic_get_disclaimer_html')) {
     function aa_findomestic_get_disclaimer_html() {
-        // fallback safety: la versione vera è definita nel file principale del plugin Lite
+        // placeholder: la vera implementazione è nel file principale, questa non dovrebbe mai girare
         return '';
     }
 }

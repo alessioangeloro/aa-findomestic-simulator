@@ -189,15 +189,15 @@ if (!function_exists('aa_findomestic_normalize_amount_api')) {
             return array('ok' => false, 'amount_float' => 0.0, 'amount_api' => '', 'amount_cents' => '');
         }
 
-        // Teniamo numeri, punti e virgole
+        // tengo solo numeri, punti e virgole
         $clean = preg_replace('/[^0-9\.,]/', '', $amount_api_raw);
 
-        // Se ci sono sia . che , assumiamo: . migliaia, , decimali
+        // se ci sono sia . che , tratto il punto come separatore migliaia e la virgola come decimale
         if (strpos($clean, '.') !== false && strpos($clean, ',') !== false) {
             $clean = str_replace('.', '', $clean);
             $clean = str_replace(',', '.', $clean);
         } elseif (strpos($clean, ',') !== false) {
-            // solo virgola => decimale
+            // solo virgola: è il separatore decimale
             $clean = str_replace(',', '.', $clean);
         }
 

@@ -56,8 +56,7 @@ function aa_findo_sim_check_php_on_activate() {
     }
 }
 
-// WP 4.6+ carica automaticamente le traduzioni per i plugin ospitati su WordPress.org
-// non serve più load_plugin_textdomain() – rimosso per rispettare le linee guida
+// WP 4.6+ le carica da solo, non serve più chiamare load_plugin_textdomain()
 
 // se WooCommerce non è attivo, AA - Findomestic Simulator non può funzionare e mostra un avviso
 add_action('admin_notices', 'aa_findo_sim_check_woocommerce');
@@ -103,10 +102,9 @@ function aa_findo_sim_render_pro_active_notice() {
     <?php
 }
 
-// definisco gli helper PRIMA di includere i file copiati dal Pro
-// perché quei file usano `if (!function_exists(...))` come guardia
-// se le definisco prima, le loro versioni interne (legate al gateway Pro) vengono saltate
-// e i file copiati useranno le mie helper che leggono dall'option della Lite
+// definisco gli helper prima di includere i file del Pro
+// così le loro guard `if (!function_exists(...))` saltano le versioni interne
+// e usano queste che leggono dall'option della Lite
 
 // helper: legge le settings della Lite
 if (!function_exists('aa_findomestic_get_gateway_settings')) {
