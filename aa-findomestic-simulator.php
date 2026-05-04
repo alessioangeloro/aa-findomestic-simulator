@@ -35,6 +35,7 @@ function aa_findo_sim_check_php_on_activate() {
         deactivate_plugins(plugin_basename(__FILE__));
         wp_die(
             sprintf(
+                // translators: %s is the PHP version number currently installed on the server.
                 esc_html__('AA - Findomestic Simulator richiede PHP 7.4 o superiore. La versione installata è %s.', 'aa-findomestic-simulator'),
                 esc_html(PHP_VERSION)
             ),
@@ -55,15 +56,8 @@ function aa_findo_sim_check_php_on_activate() {
     }
 }
 
-// carico le traduzioni dalla cartella languages (formato standard WP)
-add_action('init', 'aa_findo_sim_load_textdomain');
-function aa_findo_sim_load_textdomain() {
-    load_plugin_textdomain(
-        'aa-findomestic-simulator',
-        false,
-        dirname(AA_FINSIM_BASENAME) . '/languages'
-    );
-}
+// WP 4.6+ carica automaticamente le traduzioni per i plugin ospitati su WordPress.org
+// non serve più load_plugin_textdomain() – rimosso per rispettare le linee guida
 
 // se WooCommerce non è attivo, AA - Findomestic Simulator non può funzionare e mostra un avviso
 add_action('admin_notices', 'aa_findo_sim_check_woocommerce');
@@ -92,8 +86,9 @@ function aa_findo_sim_check_pro_active() {
         deactivate_plugins(AA_FINSIM_BASENAME);
         add_action('admin_notices', 'aa_findo_sim_render_pro_active_notice');
         // rimuovo il classico messaggio "Plugin activated" del WP che potrebbe apparire
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- controlliamo solo l'esistenza della chiave, non usiamo il valore
         if (isset($_GET['activate'])) {
-            unset($_GET['activate']);
+            unset($_GET['activate']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         }
     }
 }

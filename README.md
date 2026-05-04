@@ -3,9 +3,9 @@
 **Contributors:** alessioangeloro  
 **Tags:** woocommerce, findomestic, finanziamento, simulatore rate, rateizzazione  
 **Requires at least:** WordPress 6.0  
-**Tested up to:** WordPress 6.7  
+**Tested up to:** WordPress 6.9  
 **Requires PHP:** 7.4  
-**Stable tag:** 1.0.2  
+**Stable tag:** 1.0.3  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 

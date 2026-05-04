@@ -39,7 +39,7 @@ if (!function_exists('aa_findomestic_get_product_simulator_button_label')) {
         $settings = aa_findomestic_get_gateway_settings();
         $label = isset($settings['product_simulator_button_label']) ? sanitize_text_field($settings['product_simulator_button_label']) : '';
         if ($label === '') {
-            $label = __('Simula rate Findomestic', 'aa-findomestic-for-woocommerce');
+            $label = __('Simula rate Findomestic', 'aa-findomestic-simulator');
         }
         return $label;
     }
@@ -149,7 +149,7 @@ if (!function_exists('aa_add_findomestic_simulation_block_single_product')) {
         if ($disclaimer_html !== '') {
             echo '<div class="aa-findomestic-modal__footer">';
             echo '<div class="aa-findomestic-modal__disclaimer">';
-            echo $disclaimer_html;
+            echo wp_kses_post( $disclaimer_html );
             echo '</div>';
             echo '</div>';
         }

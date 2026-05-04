@@ -66,7 +66,7 @@ function aa_findo_sim_render_settings_page() {
             <div class="aa-tw-header-brand">
                 <img src="<?php echo esc_url($logo_url); ?>" alt="Findomestic" class="aa-tw-logo" />
                 <div class="aa-tw-header-text">
-                    <h1 class="aa-tw-h1"><?php esc_html_e('AA - Findomestic Simulator', 'aa-findomestic-simulator'); ?></h1>
+                    <h1 class="aa-tw-h1"><?php esc_html_e('Findomestic Simulator', 'aa-findomestic-simulator'); ?></h1>
                     <p class="aa-tw-subtitle"><?php esc_html_e('Mostra in pagina prodotto un pulsante che apre il modale con la simulazione rate Findomestic.', 'aa-findomestic-simulator'); ?></p>
                 </div>
             </div>
@@ -161,7 +161,7 @@ function aa_findo_sim_render_settings_page() {
 
                 <div class="aa-tw-card aa-tw-card-info">
                     <h3 class="aa-tw-h3"><?php esc_html_e('Documentazione e FAQ', 'aa-findomestic-simulator'); ?></h3>
-                    <p><?php esc_html_e('Trovi la documentazione completa e le risposte alle domande frequenti su AA - Findomestic Simulator e sulla versione Pro nella scheda prodotto.', 'aa-findomestic-simulator'); ?></p>
+                    <p><?php esc_html_e('Trovi la documentazione completa e le risposte alle domande frequenti su Findomestic Simulator e sulla versione Pro nella scheda prodotto.', 'aa-findomestic-simulator'); ?></p>
                     <a href="https://wp.alessioangeloro.it/prodotto/findomestic-per-woocommerce/" target="_blank" rel="noopener noreferrer" class="aa-tw-link"><?php esc_html_e('Apri docs e FAQ', 'aa-findomestic-simulator'); ?> →</a>
                 </div>
             </aside>

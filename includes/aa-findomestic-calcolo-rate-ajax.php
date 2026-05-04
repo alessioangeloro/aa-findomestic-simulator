@@ -235,13 +235,13 @@ if (!function_exists('aa_findomestic_calcolo_rate_ajax')) {
             wp_send_json_error(array('message' => 'Configurazione Findomestic incompleta (tvei/prf).', 'signature' => 'missing-config'));
         }
 
-        $cart_id = isset($_POST['cartId']) ? sanitize_text_field((string) $_POST['cartId']) : '';
+        $cart_id = isset($_POST['cartId']) ? sanitize_text_field( wp_unslash( (string) $_POST['cartId'] ) ) : '';
         if ($cart_id === '') {
             $cart_id = 'cart' . (string) wp_rand(1000000, 9999999);
         }
 
         // IMPORTO: arriva dal frontend (quello reale mostrato/selezionato)
-        $amount_api_raw = isset($_POST['amount_api']) ? (string) $_POST['amount_api'] : '';
+        $amount_api_raw = isset($_POST['amount_api']) ? sanitize_text_field( wp_unslash( (string) $_POST['amount_api'] ) ) : '';
         $amount_norm = aa_findomestic_normalize_amount_api($amount_api_raw);
 
         if (!$amount_norm['ok']) {
@@ -316,10 +316,6 @@ if (!function_exists('aa_findomestic_calcolo_rate_ajax')) {
                 'callbacks' => $callbacks,
             ),
         );
-
-        if (defined('WP_DEBUG') && WP_DEBUG) {
-            error_log('Findomestic Debug (Rate AJAX): amount_api_raw=' . $amount_api_raw . ' normalized=' . $amount_norm['amount_api'] . ' cartId=' . $cart_id);
-        }
 
         $res_create = aa_findomestic_remote_json_request(
             'POST',
